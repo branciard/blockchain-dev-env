@@ -1,13 +1,15 @@
 Vagrant.configure("2") do |config|
   config.vm.define "dapps" do |dapps|
     dapps.vm.box = "ubuntu/trusty64"
-    # Change from "~/DAPPS" to an existing, and non-encrypted, folder on your host if the mount fails
-    dapps.vm.synced_folder "~/DAPPS", "/home/vagrant/DAPPS", nfs: true, nfs_udp: false, create: true
+    # Change from "~/dapps" to an existing, and non-encrypted, folder on your host if the mount fails
+    dapps.vm.synced_folder "~/dapps", "/home/vagrant/dapps", nfs: true, nfs_udp: false, create: true
     dapps.vm.network "private_network", type: "dhcp"
-    dapps.vm.network :forwarded_port, guest: 8000, host: 8000
-    dapps.vm.network :forwarded_port, guest: 3000, host: 3000
-    dapps.vm.network :forwarded_port, guest: 8101, host: 8101
     dapps.vm.network :forwarded_port, guest: 8545, host: 8545
+    dapps.vm.network :forwarded_port, guest: 8546, host: 8546
+    dapps.vm.network :forwarded_port, guest: 8080, host: 8080
+    dapps.vm.network :forwarded_port, guest: 8180, host: 8180
+    dapps.vm.network :forwarded_port, guest: 30303, host: 30303
+    dapps.vm.network :forwarded_port, guest: 3001, host: 3001
 
     # IPFS
     dapps.vm.network :forwarded_port, guest: 4001, host: 4001
@@ -16,25 +18,8 @@ Vagrant.configure("2") do |config|
 
     dapps.vm.provider "virtualbox" do |v|
       host = RbConfig::CONFIG['host_os']
-
-      # Give VM 1/5 system memory & access to all cpu cores on the host
-      if host =~ /darwin/
-        cpus = `sysctl -n hw.ncpu`.to_i
-        # sysctl returns Bytes and we need to convert to MB
-        # mem = `sysctl -n hw.memsize`.to_i / 1024 / 1024 / 2
-        mem = 3072
-      elsif host =~ /linux/
-        cpus = `nproc`.to_i
-        # meminfo shows KB and we need to convert to MB
-        # mem = `grep 'MemTotal' /proc/meminfo | sed -e 's/MemTotal://' -e 's/ kB//'`.to_i / 1024 / 4
-        mem = 3072
-      else # sorry Windows folks, I can't help you
-        cpus = 2
-        mem = 3072
-      end
-
-      v.customize ["modifyvm", :id, "--memory", mem]
-      v.customize ["modifyvm", :id, "--cpus", cpus]
+       v.memory = 5000
+       v.cpus = 2
     end
 
     dapps.vm.provision "file", source: "dotscreenrc", destination: "~/.screenrc"
