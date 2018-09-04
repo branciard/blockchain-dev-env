@@ -14,11 +14,12 @@ chmod +x /usr/local/bin/docker-compose
 #for yarn
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-
-
-
+#for gcc 4
+add-apt-repository ppa:ubuntu-toolchain-r/test
 
 apt-get update
+apt-get upgrade
+
 
 #install build essential
 apt-get install -y build-essential openssl libssl-dev libudev-dev
