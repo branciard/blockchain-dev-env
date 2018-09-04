@@ -14,8 +14,7 @@ chmod +x /usr/local/bin/docker-compose
 #for yarn
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-#for gcc-4.9 g++-4.9
-add-apt-repository ppa:ubuntu-toolchain-r/test
+
 
 
 
@@ -70,31 +69,25 @@ apt-get install -y ethereum
 #cp -f build/bin/geth /usr/bin/
 #cd -
 
-# install last parity# ===> crash KO on ubuntu ???
-#bash <(curl https://get.parity.io -L)
+# install last parity
+bash <(curl https://get.parity.io -L)
 
 # install parity-ethereum workaround from source
 #install rust needed for parity - Ethereum build
-curl -sf -L https://static.rust-lang.org/rustup.sh | sh
+#curl -sf -L https://static.rust-lang.org/rustup.sh | sh
 
 #Parity Ethereum also requires gcc, g++, libudev-dev, pkg-config, file, make, and cmake packages to be installed.
-apt-get install -y gcc-4.9 g++-4.9 libudev-dev pkg-config file make cmake
-cd /usr/bin
-rm gcc g++ cpp
-ln -s gcc-4.9 gcc
-ln -s g++-4.9 g++
-ln -s cpp-4.9 cpp
-
+#apt-get install -y gcc g++ libudev-dev pkg-config file make cmake
 
 # download Parity Ethereum code
-git clone https://github.com/paritytech/parity-ethereum
-cd parity-ethereum
+#git clone https://github.com/paritytech/parity-ethereum
+#cd parity-ethereum
 # https://github.com/paritytech/parity-ethereum/releases/tag/v1.11.8
-git checkout v1.11.8
-cargo build --release --features final
-chmod +x target/release/parity
-cp -f target/release/parity /usr/bin/
-cd -
+#git checkout v1.11.8
+#cargo build --release --features final
+#chmod +x target/release/parity
+#cp -f target/release/parity /usr/bin/
+#cd -
 
 parity --version
 
