@@ -18,7 +18,7 @@ Vagrant.configure("2") do |config|
 
     dapps.vm.provider "virtualbox" do |v|
       host = RbConfig::CONFIG['host_os']
-       v.memory = 5000
+       v.memory = 10000
        v.cpus = 2
     end
 
