@@ -35,6 +35,8 @@ apt-get install -y python python-pip python-dev
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 apt-get install -y nodejs
 
+#install npm
+apt-get install -y npm
 
 #docker
 apt-get install -y linux-image-extra-$(uname -r)
