@@ -1,7 +1,6 @@
 Vagrant.configure("2") do |config|
   config.vm.define "dapps" do |dapps|
-    dapps.vm.box = "ubuntu/trusty64"
-    dapps.vm.box_version = "20180807.0.0"
+    dapps.vm.box = "bento/ubuntu-18.04"
     # Change from "~/dapps" to an existing, and non-encrypted, folder on your host if the mount fails
     dapps.vm.synced_folder "~/dapps", "/home/vagrant/dapps", nfs: true, nfs_udp: false, create: true
     dapps.vm.network "private_network", type: "dhcp"
