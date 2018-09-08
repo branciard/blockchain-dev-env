@@ -10,6 +10,8 @@ Vagrant.configure("2") do |config|
     dapps.vm.network :forwarded_port, guest: 8180, host: 8180
     dapps.vm.network :forwarded_port, guest: 30303, host: 30303
     dapps.vm.network :forwarded_port, guest: 3001, host: 3001
+    dapps.vm.network :forwarded_port, guest: 3000, host: 3000
+
 
     # IPFS
     dapps.vm.network :forwarded_port, guest: 4001, host: 4001
