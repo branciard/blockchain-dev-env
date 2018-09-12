@@ -26,6 +26,6 @@ Vagrant.configure("2") do |config|
 
     dapps.vm.provision "file", source: "dotscreenrc", destination: "~/.screenrc"
 
-    dapps.vm.provision :shell, path: "bootstrap.sh"
+    dapps.vm.provision :shell, path: "bootstrap-ubuntu-vagrant.sh"
   end
 end

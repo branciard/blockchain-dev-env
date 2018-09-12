@@ -42,8 +42,8 @@ apt-get install -y npm
 apt-get install -y linux-image-extra-$(uname -r)
 apt-get install -y linux-image-extra-virtual
 apt-get -y install docker-ce
-# add vagrant to docker group
-usermod -aG docker vagrant
+# add ubuntu to docker group
+usermod -aG docker ubuntu
 
 
 #install last solc AUTO
@@ -74,6 +74,16 @@ apt-get install -y ethereum
 
 # install last parity
 bash <(curl https://get.parity.io -L)
+
+
+# install ethkey-cli
+https://github.com/paritytech/parity-ethereum
+cd parity-ethereum/
+cargo build -p ethkey-cli --release
+./target/release/ethkey --help
+cp -f ./target/release/ethkey /usr/bin/
+cd -
+
 
 # install parity-ethereum workaround from source
 #install rust needed for parity - Ethereum build
@@ -110,6 +120,6 @@ cd -
 #for parity bridge
 #install yarn
 apt-get install yarn
-su - vagrant -c "sudo npm i concurrently -g"
+su - ubuntu -c "sudo npm i concurrently -g"
 #install rust
 curl -sf -L https://static.rust-lang.org/rustup.sh | sh
