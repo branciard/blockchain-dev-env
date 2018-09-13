@@ -77,12 +77,12 @@ bash <(curl https://get.parity.io -L)
 
 
 # install ethkey-cli
-https://github.com/paritytech/parity-ethereum
-cd parity-ethereum/
-cargo build -p ethkey-cli --release
-./target/release/ethkey --help
-cp -f ./target/release/ethkey /usr/bin/
-cd -
+#https://github.com/paritytech/parity-ethereum
+#cd parity-ethereum/
+#cargo build -p ethkey-cli --release
+#./target/release/ethkey --help
+#cp -f ./target/release/ethkey /usr/bin/
+#cd -
 
 
 # install parity-ethereum workaround from source
@@ -123,3 +123,8 @@ apt-get install yarn
 su - ubuntu -c "sudo npm i concurrently -g"
 #install rust
 curl -sf -L https://static.rust-lang.org/rustup.sh | sh
+
+#install Remote atom
+curl -o /usr/local/bin/rmate https://raw.githubusercontent.com/aurora/rmate/master/rmate
+sudo chmod +x /usr/local/bin/rmate
+mv /usr/local/bin/rmate /usr/local/bin/ratom

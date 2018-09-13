@@ -76,12 +76,12 @@ apt-get install -y ethereum
 bash <(curl https://get.parity.io -L)
 
 # install ethkey-cli
-https://github.com/paritytech/parity-ethereum
-cd parity-ethereum/
-cargo build -p ethkey-cli --release
-./target/release/ethkey --help
-cp -f ./target/release/ethkey /usr/bin/
-cd -
+#https://github.com/paritytech/parity-ethereum
+#cd parity-ethereum/
+#cargo build -p ethkey-cli --release
+#./target/release/ethkey --help
+#cp -f ./target/release/ethkey /usr/bin/
+#cd -
 
 # install parity-ethereum workaround from source
 #install rust needed for parity - Ethereum build
