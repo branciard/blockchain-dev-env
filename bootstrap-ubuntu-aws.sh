@@ -18,6 +18,8 @@ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/source
 
 apt-get update
 
+apt-get install -y jq
+apt-get install -y bc
 
 #install build essential
 apt-get install -y build-essential openssl libssl-dev libudev-dev
