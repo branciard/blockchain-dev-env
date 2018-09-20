@@ -128,3 +128,8 @@ curl -sf -L https://static.rust-lang.org/rustup.sh | sh
 curl -o /usr/local/bin/rmate https://raw.githubusercontent.com/aurora/rmate/master/rmate
 sudo chmod +x /usr/local/bin/rmate
 mv /usr/local/bin/rmate /usr/local/bin/ratom
+
+#install iexec sdk
+npm -g install iexec # install the cli
+iexec --version
+
