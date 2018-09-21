@@ -20,6 +20,9 @@ apt-get update
 apt-get install -y jq
 apt-get install -y bc
 
+# need for parity-bridge compile
+apt-get install pkgconfig
+
 #install build essential
 apt-get install -y build-essential openssl libssl-dev libudev-dev
 
