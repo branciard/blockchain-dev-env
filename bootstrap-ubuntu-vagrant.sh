@@ -49,13 +49,13 @@ usermod -aG docker vagrant
 
 
 #install last solc AUTO
-apt-get install -y solc
+#apt-get install -y solc
 
 #install solc Manual
 #wget https://github.com/ethereum/solidity/releases/download/v0.4.23/solc-static-linux
-#wget https://github.com/ethereum/solidity/releases/download/v0.4.17/solc-static-linux
-#chmod +x solc-static-linux
-#mv solc-static-linux /usr/bin/solc
+wget https://github.com/ethereum/solidity/releases/download/v0.4.17/solc-static-linux
+chmod +x solc-static-linux
+mv solc-static-linux /usr/bin/solc
 
 
 # install last Geth AUTO
