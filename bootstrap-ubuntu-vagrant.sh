@@ -124,3 +124,8 @@ apt-get install yarn
 su - vagrant -c "sudo npm i concurrently -g"
 #install rust
 curl -sf -L https://static.rust-lang.org/rustup.sh | sh
+
+
+#install iexec sdk
+npm -g install iexec # install the cli
+iexec --version
