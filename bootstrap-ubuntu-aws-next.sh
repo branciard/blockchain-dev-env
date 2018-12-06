@@ -78,13 +78,6 @@ usermod -aG docker ubuntu
 #bash <(curl https://get.parity.io -L)
 
 
-# install ethkey-cli
-https://github.com/paritytech/parity-ethereum
-cd parity-ethereum/
-cargo build -p ethkey-cli --release
-./target/release/ethkey --help
-cp -f ./target/release/ethkey /usr/bin/
-cd -
 
 
 # install parity-ethereum workaround from source
@@ -95,13 +88,18 @@ curl -sf -L https://static.rust-lang.org/rustup.sh | sh
 apt-get install -y gcc g++ libudev-dev pkg-config file make cmake
 
 # download Parity Ethereum code
-#git clone https://github.com/paritytech/parity-ethereum
-cd parity-ethereum
+rm -rf parity-ethereum
+git clone https://github.com/paritytech/parity-ethereum
+cd parity-ethereum/
 # https://github.com/paritytech/parity-ethereum/releases/tag/v1.11.8
 git checkout v2.2.1
 cargo build --release --features final
 chmod +x target/release/parity
 cp -f target/release/parity /usr/bin/
+# install ethkey-cli
+cargo build -p ethkey-cli --release
+./target/release/ethkey --help
+cp -f ./target/release/ethkey /usr/bin/
 cd -
 
 parity --version
