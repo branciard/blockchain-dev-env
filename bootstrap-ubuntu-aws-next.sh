@@ -50,7 +50,7 @@ usermod -aG docker ubuntu
 
 
 #install last solc AUTO
-apt-get install -y solc
+#apt-get install -y solc
 
 #install solc Manual
 #wget https://github.com/ethereum/solidity/releases/download/v0.4.17/solc-static-linux
@@ -58,7 +58,7 @@ apt-get install -y solc
 #mv solc-static-linux /usr/bin/solc
 
 # install last Geth AUTO
-apt-get install -y ethereum
+#apt-get install -y ethereum
 
 # install last Geth MANUAL
 #wget https://dl.google.com/go/go1.11.linux-amd64.tar.gz
@@ -75,56 +75,56 @@ apt-get install -y ethereum
 #cd -
 
 # install last parity
-bash <(curl https://get.parity.io -L)
+#bash <(curl https://get.parity.io -L)
 
 
 # install ethkey-cli
-#https://github.com/paritytech/parity-ethereum
-#cd parity-ethereum/
-#cargo build -p ethkey-cli --release
-#./target/release/ethkey --help
-#cp -f ./target/release/ethkey /usr/bin/
-#cd -
+https://github.com/paritytech/parity-ethereum
+cd parity-ethereum/
+cargo build -p ethkey-cli --release
+./target/release/ethkey --help
+cp -f ./target/release/ethkey /usr/bin/
+cd -
 
 
 # install parity-ethereum workaround from source
 #install rust needed for parity - Ethereum build
-#curl -sf -L https://static.rust-lang.org/rustup.sh | sh
+curl -sf -L https://static.rust-lang.org/rustup.sh | sh
 
 #Parity Ethereum also requires gcc, g++, libudev-dev, pkg-config, file, make, and cmake packages to be installed.
-#apt-get install -y gcc g++ libudev-dev pkg-config file make cmake
+apt-get install -y gcc g++ libudev-dev pkg-config file make cmake
 
 # download Parity Ethereum code
 #git clone https://github.com/paritytech/parity-ethereum
-#cd parity-ethereum
+cd parity-ethereum
 # https://github.com/paritytech/parity-ethereum/releases/tag/v1.11.8
-#git checkout v1.11.8
-#cargo build --release --features final
-#chmod +x target/release/parity
-#cp -f target/release/parity /usr/bin/
-#cd -
+git checkout v2.2.1
+cargo build --release --features final
+chmod +x target/release/parity
+cp -f target/release/parity /usr/bin/
+cd -
 
 parity --version
 
 #install last truffle
-npm install -g truffle@v4.1.14
+#npm install -g truffle@v4.1.14
 #install last ganache-cli
-npm install -g ganache-cli@6.1.8
+#npm install -g ganache-cli@6.1.8
 
 
 #ipfs
-wget https://dist.ipfs.io/go-ipfs/v0.4.17/go-ipfs_v0.4.17_linux-amd64.tar.gz
-tar xvfz go-ipfs_v0.4.17_linux-amd64.tar.gz
-cd go-ipfs
-./install.sh
-cd -
+#wget https://dist.ipfs.io/go-ipfs/v0.4.17/go-ipfs_v0.4.17_linux-amd64.tar.gz
+#tar xvfz go-ipfs_v0.4.17_linux-amd64.tar.gz
+#cd go-ipfs
+#./install.sh
+#cd -
 
 #for parity bridge
 #install yarn
-apt-get install yarn
-su - ubuntu -c "sudo npm i concurrently -g"
+#apt-get install yarn
+#su - ubuntu -c "sudo npm i concurrently -g"
 #install rust
-curl -sf -L https://static.rust-lang.org/rustup.sh | sh
+#curl -sf -L https://static.rust-lang.org/rustup.sh | sh
 
 #install Remote atom
 curl -o /usr/local/bin/rmate https://raw.githubusercontent.com/aurora/rmate/master/rmate
