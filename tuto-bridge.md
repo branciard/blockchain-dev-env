@@ -1,18 +1,19 @@
-#Prerequiste deploy 2 PoA chains in local vm
+# Prerequiste deploy 2 PoA chains in local vm
 
-install Vagrant 2.2.4 : https://www.vagrantup.com/downloads.html
-install vagrant virtual box provider https://www.vagrantup.com/docs/virtualbox/
-install docker and docker compose on your host
-
+* install Vagrant 2.2.4 : https://www.vagrantup.com/downloads.html
+* install vagrant virtual box provider https://www.vagrantup.com/docs/virtualbox/
+* install docker and docker compose on your host
+```
 vagrant up
+```
 
-Must end with :
 
 You can connect and see containers in vm :
-
+```
 vagrant ssh
+```
 
-#1 ) ON your HOST (not the vm) deploy bridge smart contract 
+# 1 ) ON your HOST (not the vm) deploy bridge smart contract 
 
 somewhere :
 rm -rf poa-bridge-contracts
@@ -36,7 +37,7 @@ docker-compose run bridge-contracts deploy.sh
 
 copy json content in a bridgeDeploymentResults.json file
 
-#2 ) ON your HOST (not the vm) connect bridges agents to smart contracts 
+# 2 ) ON your HOST (not the vm) connect bridges agents to smart contracts 
 
 somewhere :
 git clone -b 1.1.0 https://github.com/poanetwork/token-bridge.git
@@ -57,13 +58,13 @@ Edit : __FOREIGN_BRIDGE_ADDRESS__ (see bridgeDeploymentResults.json)
 
 docker-compose up -d rabbit  
 docker-compose up -d redis
-# wait 30 sec  rabbit connection to be ready ...
+// wait 30 sec  rabbit connection to be ready ...
 docker-compose up -d --build
 
 check with 
 docker-compose logs  -f
 
-#3 ) ON your HOST (not the vm) start a bridge UI
+# 3 ) ON your HOST (not the vm) start a bridge UI
 
 git clone -b develop-iexec https://github.com/iExecBlockchainComputing/bridge-ui.git
 cd bridge-ui
